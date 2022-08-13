@@ -1,0 +1,15 @@
+def dompling():
+    x = input()
+    n = ''
+    m = ''
+    for i in range(2):
+        if i == 0:
+            n = x.split()[i]
+        if i == 1:
+            m = x.split()[i]
+    n = int(n)
+    m = int(m)
+    s = n*m
+    return s//2
+
+print(dompling())
