@@ -1,0 +1,33 @@
+#User function Template for python3
+
+class Solution: 
+    def select(self, arr, i):
+        for k in arr[i:]:
+          return k
+    def selectionSort(self, arr,n):
+            for i in range(n-1):
+                minpos = i
+                for j in range(i,n):
+                    if arr[j]<arr[minpos]:
+                        minpos = j
+                arr[i],arr[minpos]=arr[minpos],arr[i]
+            return arr
+        
+                 
+          
+               
+
+
+#{ 
+ # Driver Code Starts
+#Initial Template for Python 3
+
+if __name__ == '__main__': 
+    t = int(input())
+    for _ in range(t):
+        n = int(input())
+        arr = list(map(int, input().strip().split()))
+        Solution().selectionSort(arr, n)
+        for i in range(n):
+            print(arr[i],end=" ")
+        print()
