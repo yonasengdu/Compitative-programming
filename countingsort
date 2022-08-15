@@ -20,11 +20,11 @@ def countingSort(arr):
           for i in range(len(arr)):
               if arr[i] > n:
                   n = arr[i]
-        for i in range(n):
+          for i in range(n):
             count.append(0)
-        for i in arr:
+          for i in arr:
             count[i] +=1
-         for i in range(len(count)-1):
+          for i in range(len(count)-1):
              count[i+1] = count[i+1] + count[i]
           for i in range(len(count)-1,0,-1):
               count[i] = count[i-1]
