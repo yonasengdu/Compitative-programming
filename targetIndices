@@ -1,0 +1,12 @@
+class Solution:
+    def targetIndices(self, nums: List[int], target: int) -> List[int]: 
+                nums = sorted(nums)
+                Dict = {}
+                arr = []
+                for i in range(len(nums)):
+                        Dict[i] = nums[i]
+                for i in range(len(nums)):
+                    if Dict[i] - target == 0:
+                        arr.append(i)
+                return arr
+
