@@ -1,0 +1,10 @@
+class Solution:
+    def sortSentence(self, s: str) -> str:
+            arr = []
+            for i in range(9):
+                arr.append("")
+            for i in s.split():
+                arr[int(i[-1])-1] = i[:-1]
+            arr=list(filter(None,arr))
+            return " ".join(x for x in arr)
+
