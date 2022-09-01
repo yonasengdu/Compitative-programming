@@ -1,0 +1,10 @@
+N = int(input())
+set1 = set(map(int, raw_input().split()))
+M = int(input())
+set2 = set(map(int, raw_input().split()))
+C = set1.difference(set2)
+C.update(set2.difference(set1))
+ans = list(C)
+ans.sort()
+for i in ans:
+    print i
