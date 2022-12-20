@@ -1,0 +1,24 @@
+def swap_case(s):
+    swapped = ""
+    for case in s:
+        i = f"{case}"
+        if ord(i)>64 and ord(i) < 91:
+            i=i.lower()
+            swapped += i
+        elif ord(i)>96 and ord(i)<123:
+            i=i.upper()
+            swapped += i
+        else: swapped += i
+    return swapped
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    
+    def swap_case(s):
+    ans = ""
+    for i in s: 
+        if i.islower():
+            ans += i.upper()
+        elif i.isupper():
+            ans += i.lower()
+        else:
+            ans += i
+    return ans
