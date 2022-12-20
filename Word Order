@@ -1,0 +1,16 @@
+num = int(input())
+words_list =[]
+words = {}
+for i in range(num):
+    word = input()
+    if word in words:
+        words[word]+= 1
+    else:
+        words[word]=1
+        words_list.append(word)
+print(len(words))
+for j in words_list:
+    print(words[j],end=" ")
+    
+        
+ 
