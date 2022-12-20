@@ -1,0 +1,13 @@
+k = int(input())
+room_numbers = (input().split())
+rooms = {}
+for i in room_numbers:
+    if i in rooms:
+        rooms[i]+=1
+    else:
+        rooms[i]=1
+for i,j in rooms.items():
+    if j == 1:
+        print(int(i))
+        break
+    
