@@ -1,0 +1,47 @@
+
+test_case = int(input())
+for i in range(test_case):
+    number_of_cubes = int(input())
+    side_length = list((map(int,input().split())))
+    pointer1 = 0
+    pointer2 = number_of_cubes-1
+    num = 0
+    while pointer1<pointer2:
+        start = side_length[pointer1]
+        end = side_length[pointer2]
+        if end>=start:
+            if num:
+                if end <= num:
+                    num = end
+                    pointer2-=1
+                else:
+                    print('No')
+                    break
+            else:
+                num = end
+                pointer2-=1
+        else:
+            if num:
+                if start <= num:
+                    num = start
+                    pointer1+=1
+                else:
+                    print('No')
+                    break
+            else:
+                num = start
+                pointer1 +=1
+    if pointer1 == pointer2:       
+        print('Yes')
+                
+                
+        
+                  
+        
+        
+   
+         
+         
+         
+        
+    
