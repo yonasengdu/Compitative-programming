@@ -1,0 +1,22 @@
+__name__ == '__main__':
+    N = int(input())
+    ls = []*12
+    for i in range(N):
+        inp = input()
+        n = inp.split()
+        if n[0]== "insert":
+            ls.insert(int(n[1]),int(n[2]))
+        elif n[0]=="print":
+            print(ls)
+        elif n[0]== "remove":
+            ls.remove(int(n[1]))
+        elif n[0]== "append":
+            ls.append(int(n[1]))
+        elif n[0]=="sort":
+            ls.sort()
+        elif n[0]=="pop":
+            ls.pop()
+        elif n[0]== "reverse":
+            ls.reverse()
+            
+            
