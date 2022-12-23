@@ -1,0 +1,18 @@
+
+def isStrictSuperSet():
+    setA = set(input().split())
+    n = int(input())
+    flag= True
+    for s in range(n):
+        minor_set = set(input().split()) 
+        superSet = setA.issuperset(minor_set)
+        temp_flag = len(setA)> len(minor_set)
+        if superSet and temp_flag:
+            flag=True
+        else:
+            return False
+    return flag
+print(isStrictSuperSet())
+            
+        
+        
