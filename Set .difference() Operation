@@ -1,0 +1,6 @@
+nums_subscribed_English = input()
+student_subscribed_English = set(map(int,input().split(" ")))
+nums_subscribed_French = input()
+student_subscribed_French = set(map(int,input().split(" ")))
+num_only_English_subscribers = len(student_subscribed_English.difference(student_subscribed_French))
+print(num_only_English_subscribers)
