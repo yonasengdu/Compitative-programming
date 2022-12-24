@@ -1,0 +1,19 @@
+import textwrap
+
+def wrap(string, max_width):
+    temp = []
+    result = []
+    for latter in string:
+        if len(temp) == max_width:
+            result.append(''.join(temp))
+            result.append("\n")
+            temp = []
+        
+        temp.append(latter)
+    result.append(''.join(temp))  
+    return ''.join(result)
+
+if __name__ == '__main__':
+    string, max_width = input(), int(input())
+    result = wrap(string, max_width)
+    print(result)
