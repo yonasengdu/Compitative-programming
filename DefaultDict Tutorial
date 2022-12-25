@@ -1,0 +1,15 @@
+n,m = map(int,input().split())
+latter_index_container = {}
+for latter_index in range(1,n+1):
+    groupA_latter = input()
+    if groupA_latter in latter_index_container:
+        latter_index_container[groupA_latter].append(str(latter_index))
+    else:
+        latter_index_container[groupA_latter] = [str(latter_index)]
+for latter in range(m):
+    groupB_latter = input()
+    if groupB_latter in latter_index_container:
+        latter_indexes = latter_index_container[groupB_latter]
+        print(' '.join(latter_indexes))
+    else: 
+        print("-1")
