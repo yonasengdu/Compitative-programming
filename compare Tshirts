@@ -1,0 +1,31 @@
+num_taste_cases = int(input())
+for taste in range(num_taste_cases):
+    size1 , size2 = input().split()
+    size_last1, size_last2 = size1[-1],size2[-1]
+    count1,count2 = len(size1[:len(size1)]),len(size2[:len(size2)])
+    if size_last1 == size_last2:
+        if size_last1 == "S":
+            if count1 > count2:
+                print("<")
+            elif count1 < count2:
+                print(">")
+            else:
+                print("=")
+        else:
+            if count1 > count2:
+                print(">")
+            elif count1 < count2:
+                print("<")
+            else:
+                print("=")
+    else:
+        if size_last1 == "S" and size_last2 == "M":
+            print("<")
+        elif size_last1 == "S" and size_last2 == "L":
+            print("<")
+        elif size_last1 == "M" and size_last2 == "L":
+            print("<")
+        elif size_last1 == "M" and size_last2 == "S":
+            print(">")
+        else: 
+            print(">")
