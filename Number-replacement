@@ -1,0 +1,20 @@
+num_taste_cases = int(input())
+for taste in range(num_taste_cases):
+    length = int(input())
+    nums = list(map(int,input().split()))
+    chars = input()
+    validator_dict = {}
+    valid_flag = True
+    for num in range(length):
+        if nums[num] in validator_dict:
+            if   validator_dict[nums[num]] != chars[num]:
+                print("NO")
+                valid_flag = False
+                break
+        else:
+            validator_dict[nums[num]] = chars[num]
+    if valid_flag:
+        print("YES")
+
+    
+    
