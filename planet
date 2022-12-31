@@ -1,0 +1,14 @@
+from collections import Counter
+num_taste_cases = int(input())
+for taste in range(num_taste_cases):
+    total_planets, cost = map(int,input().split())
+    orbits = list(map(int,input().split()))
+    total_cost = 0
+    planets_per_orbit = Counter(orbits)
+    for num_planets in planets_per_orbit.values():
+        if num_planets > cost:
+            total_cost += cost
+        else:
+            total_cost += num_planets
+    print(total_cost)
+       
