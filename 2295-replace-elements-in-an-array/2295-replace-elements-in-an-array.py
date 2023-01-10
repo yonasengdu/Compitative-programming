@@ -6,7 +6,7 @@ class Solution:
         for old,new in operations:
             index = num_index[old]
             nums[index] = new
-            num_index[new] = num_index[old]
+            num_index[new] = num_index.pop(old)
         return nums
             
         
