@@ -2,10 +2,13 @@ class Solution:
     def commonChars(self, words: List[str]) -> List[str]:
         ans = []
         for char in ascii_lowercase:
-            arr= []
+            ctr = float("inf")
             for word in words:
-                arr.append(word.count(char))
-            ans.extend([char]*min(arr))
+                temp_count = word.count(char)
+                if temp_count < ctr:
+                    ctr = temp_count
+            ans.extend([char]*ctr)
+        
         return ans
             
           
