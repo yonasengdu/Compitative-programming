@@ -1,5 +1,6 @@
 class Solution:
     def maximumRequests(self, n: int, requests: List[List[int]]) -> int:
+        
         self.comb_arr = []
         self.ans = 0
         
@@ -7,6 +8,7 @@ class Solution:
             if len(comb) == k:
                 self.comb_arr.append(comb[:])
                 return
+            
             if start == len(requests):
                 return
             
