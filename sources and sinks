@@ -1,0 +1,26 @@
+num_nodes = int(input())
+adjacency_matrix = []
+sink = [0]
+source = [0]
+
+for ind in range(num_nodes):
+    row = input().split()
+    adjacency_matrix.append(row)
+
+for ind,row in enumerate(adjacency_matrix):
+    if row.count("0") == num_nodes:
+        source[0] += 1
+        source.append(ind + 1)
+    count = 0
+    for col in range(num_nodes):
+        if adjacency_matrix[col][ind] =="0":
+            count += 1
+    if count == num_nodes:
+        sink[0] += 1
+        sink.append(ind+1)
+
+print(*sink)
+print(*source)
+
+
+   
