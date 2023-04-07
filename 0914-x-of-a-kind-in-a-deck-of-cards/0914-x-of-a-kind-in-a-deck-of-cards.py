@@ -15,7 +15,7 @@ class Solution:
         
         if gcd <= 1:
             return False
-            
+        # print"
         return True
         
         
