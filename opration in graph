@@ -1,0 +1,20 @@
+from collections import defaultdict
+
+adjacency_list = defaultdict(list)
+
+number_vertices = int(input())
+number_operations = int(input())
+for _ in range(number_operations):
+    # print(adjacency_list)
+    operation = input().split()
+
+    if operation[0] == "1":
+        u = operation[1]
+        v = operation[2]
+        # print(u,v)
+        adjacency_list[u].append(v)
+        adjacency_list[v].append(u)
+    else:
+        u = operation[1]
+        edges = adjacency_list[u]
+        print(*edges)
