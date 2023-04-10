@@ -1,0 +1,9 @@
+n = int(input())
+checker = set()
+for ind in range(n):
+    row = input().split()
+    for col,marker in enumerate(row):
+        if marker == "1":
+            checker.add(tuple(sorted([col,ind])))
+
+print(len(checker))
