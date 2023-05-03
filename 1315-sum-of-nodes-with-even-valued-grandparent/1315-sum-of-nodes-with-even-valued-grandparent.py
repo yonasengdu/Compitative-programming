@@ -12,11 +12,15 @@ class Solution:
             if not node[0]:
                 return 
             
-            if node[2] and node[2].val % 2 == 0:
+            if node[2] and node[2] % 2 == 0:
                 self.ans += node[0].val
                 
-            dfs((node[0].left,node[0],node[1]))
-            dfs((node[0].right,node[0],node[1]))
+            parent = node[0].val  if node[0] else None
+            g_parent = node[1] 
+            
+            
+            dfs((node[0].left,parent,g_parent))
+            dfs((node[0].right,parent,g_parent))
             
             
         dfs((root,None,None))
