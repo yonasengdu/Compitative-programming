@@ -13,11 +13,9 @@ class Solution:
                 
                 
         
-        queue = deque()
+        queue = deque(supplies)
         
-        for init in supplies:
-            queue.append(init)
-        
+      
         supplies = set(supplies)
         while queue:
             
