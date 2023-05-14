@@ -1,0 +1,32 @@
+from collections import defaultdict
+
+
+def compute(n,BICOLOURABLE,colors):
+    for _ in range(n):
+        
+        edge_n, edge_m = map(int,input().split())
+        if edge_n not in colors and edge_m not in colors:
+            colors[edge_n] = -1
+            colors[edge_m] = 1
+        elif edge_m in colors and edge_n not in colors:
+            colors[edge_n] = colors[edge_m] * -1
+        elif edge_n in colors and edge_m not in colors:   
+                colors[edge_m] = colors[edge_n] * -1
+        else:
+            if colors[edge_m] == colors[edge_n]:
+                BICOLOURABLE = False
+
+    if BICOLOURABLE:
+        print("BICOLOURABLE.")
+    else:
+        print("NOT BICOLOURABLE.")
+        
+while True:
+
+    colors = defaultdict(int)
+    BICOLOURABLE = True
+    l = int(input())
+    if l == 0:
+        break
+    n = int(input())
+    compute(n,BICOLOURABLE,colors)
