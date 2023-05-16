@@ -1,0 +1,11 @@
+engths = input()
+arr1 = list(map(int, input().split()))
+arr2 = list(map(int, input().split()))
+
+result = []
+
+p = 0
+for num in arr2:
+    while p < len(arr1) and arr1[p] < num:
+        p += 1
+    result.append(p)
