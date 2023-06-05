@@ -1,17 +1,12 @@
 class Solution:
-    def tribonacci(self, n: int) -> int:
-        ggp , gp , p   = 0,1,1
-         
-        if 0 < n <= 2:
-            return 1
-        if n == 0:
+    def tribonacci(self, n: int,memo = defaultdict(int)) -> int:
+        if 0 <= n <= 1:
+            return n
+        if n < 0:
             return 0
+        if n in memo:
+            return memo[n]
         
-        for i in range(3,n+1):
-            curr = ggp + gp + p
-            ggp = gp
-            gp = p
-            p = curr
-            
+        memo[n] = self.tribonacci(n - 1) + self.tribonacci(n - 2) + self.tribonacci(n - 3)
         
-        return curr  
+        return memo[n]
