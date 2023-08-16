@@ -7,23 +7,36 @@ class Solution:
         def valid(row,col):
             return 0 <= row < len(obstacleGrid) and 0 <= col <len(obstacleGrid[0])
         
-        @cache
-        def count(row,col):
-            if row == len(obstacleGrid) - 1  and col == len(obstacleGrid[0]) - 1:
-                return 1
-            
-            if not valid(row,col):
-                return 0
-            
-            if valid(row,col) and obstacleGrid[row][col] == 1:
-                return 0
-            
-            return count(row + 1,col) + count(row,col + 1)
-            
-          
         
+        row = len(obstacleGrid)
+        col = len(obstacleGrid[0])
         
-        return count(0,0)
+        for r in range(row):
+            for c in range(col):
+                if obstacleGrid[r][c] == 1:
+                    obstacleGrid[r][c] = "x"
+                    
+        obstacleGrid[0][0] = 1
+                    
+                    
+        for r in range(row):
+            for c in range(col):
+                top_row = r - 1
+                left_col = c - 1
+                
+                if obstacleGrid[r][c] == "x":
+                    obstacleGrid[r][c] = 0
+                    continue
+                
+                if valid(top_row,c):
+                    obstacleGrid[r][c] += obstacleGrid[top_row][c]
+                
+                if valid(r,left_col):
+                    obstacleGrid[r][c] += obstacleGrid[r][left_col]
+                    
+        return obstacleGrid[-1][-1]
+                    
+                    
             
         
             
