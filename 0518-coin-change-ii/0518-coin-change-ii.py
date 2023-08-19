@@ -1,23 +1,26 @@
 class Solution:
     def change(self, amount: int, coins: List[int]) -> int:
         
-        
-        @cache
-        def dp(idx,total):
-            if total == amount:
-                return 1
+        n = len(coins)
+        dp = [1] + [0]*(amount)
+
+        for i in range(n):
+            for j in range(coins[i], amount + 1):
+                dp[j] += dp[j - coins[i]]
+
+        return dp[amount]
                 
-            if total > amount:
-                return 0
+        
+        
+        
+#         @cache
+#         def dp(idx,total):
+#             if total == amount:
+#                 return 1
+                
+#             if total > amount or idx == len(coins):
+#                 return 0
             
-            count = 0
-            for i in range(idx,len(coins)):
-                count += dp(i, total + coins[i])
+#             return dp(idx,total + coins[idx]) + dp(idx + 1,total)
                 
-            return count
-                
-            
-        
-        return dp(0,0)
-                
-        
+#         return dp(0,0)  
