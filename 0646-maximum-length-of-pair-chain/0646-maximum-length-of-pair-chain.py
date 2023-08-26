@@ -9,11 +9,12 @@ class Solution:
             prev = pair[start_idx]
             curr = 1
             for i in range(start_idx + 1,len(pairs)):
-                if prev[1] >= pair[i][0]:
-                    continue
+                if prev[1] < pair[i][0]:
+                    curr += 1
+                    prev = pair[i]
                     
-                curr += 1
-                prev = pair[i]
+                    
+              
                     
             count = max(count,curr) 
             
