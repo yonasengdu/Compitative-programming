@@ -1,35 +1,25 @@
 class Solution:
     def combinationSum4(self, nums: List[int], target: int) -> int:
-        
-        dp = [0] * (target + 1)
-        dp[0] = 1
-        
-        for i in range(1, target + 1):
-            for num in nums:
-                if i - num >= 0:
-                    dp[i] += dp[i - num]
-                    
-        return dp[target]
-    
-        combination = 0
-  
+     
+        @cache
         def backtrack(cSum):
-            nonlocal combination
+          
             if cSum == target:
                
-                combination += 1
-                return 
+              
+                return 1
             
             if cSum > target:
-                return 
+                return 0
             
             
+            count = 0
             for num in nums:
-                backtrack(cSum + num)
+                count += backtrack(cSum + num)
                 
-            return 
+            return count
         
-        backtrack(0)
+        return backtrack(0)
             
-        return combination
+      
         
