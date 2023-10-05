@@ -1,15 +1,27 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> List[int]:
-        count = Counter(nums)
         shouldHappen = len(nums) // 3
+        nums.sort()
+        
+        left = 0
         
         ans = []
         
-        
-        
-        for num,rep in count.items():
-            if rep > shouldHappen:
-                ans.append(num)
+        for right in range(len(nums)):
+            
+            if nums[left] != nums[right]:
+                print
+                if right - left > shouldHappen:
+                    ans.append(nums[left])
+                left = right
                 
-        return ans 
+        if len(nums) - left > shouldHappen:
+            ans.append(nums[left])
+            
+        return ans
+                
+        
+       
+        
+        
         
