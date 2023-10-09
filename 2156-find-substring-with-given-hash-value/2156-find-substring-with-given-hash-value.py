@@ -10,7 +10,7 @@ class Solution:
         powers = [1]
         
         for i in range(1,k+1):
-            powers.append(powers[-1]*power)
+            powers.append((powers[-1]*power)%modulo)
             
         
         
