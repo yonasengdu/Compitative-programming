@@ -15,7 +15,7 @@ class Solution:
         
         
         for right in range(len(s)):
-            hash_right = ((hash_right * power) + (ord(s[right]) - offSet)) % modulo
+            hash_right = (((hash_right * power) % modulo) + (ord(s[right]) - offSet)) % modulo
             
             if right - left + 1 == k:
                 if hash_right == hashValue:
