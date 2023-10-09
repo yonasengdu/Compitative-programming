@@ -6,7 +6,7 @@ class Solution:
         left = 0
         s = s[::-1]
         
-        ans = ""  
+        ans = (-1,-1)
         powers = [1]
         
         for i in range(1,k+1):
@@ -19,7 +19,7 @@ class Solution:
             
             if right - left + 1 == k:
                 if hash_right == hashValue:
-                    ans = ''.join(s[left:right+1])
+                    ans = (left,right)
                 
                 hash_right -= ((ord(s[left]) - offSet) * powers[k-1])
                 hash_right %= modulo
@@ -27,6 +27,6 @@ class Solution:
             
             
             
-        return ans[::-1]
+        return s[ans[0]:ans[1]+1][::-1]
         
         
