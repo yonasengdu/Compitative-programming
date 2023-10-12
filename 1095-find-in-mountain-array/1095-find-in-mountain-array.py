@@ -8,9 +8,7 @@
 
 class Solution:
     def findInMountainArray(self, target: int, mountain_arr: 'MountainArray') -> int:
-        
-        
-        
+     
         low = 0
         high = mountain_arr.length() - 1
         n = high
@@ -41,11 +39,6 @@ class Solution:
                 break
                     
         
-                
-
-      
-        print(peak)
-        
         low = 0
         high = peak 
 
@@ -71,10 +64,6 @@ class Solution:
             else:
                 break
 
-                
-                
-                
-
         low = peak
         high = mountain_arr.length() - 1
         finding2 = float('inf')
@@ -98,8 +87,6 @@ class Solution:
                 finding2 = mid
                 break
           
-                
-
         ans = min(finding1,finding2) 
         
         return ans if ans != float('inf') else -1
