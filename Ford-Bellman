@@ -1,0 +1,39 @@
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	var n, e int
+	fmt.Scan(&n, &e)
+
+	graph := make([][]struct{v, w int}, n+1)
+	for i := 0; i < e; i++ {
+		var edge1, edge2, weight int
+		fmt.Scan(&edge1, &edge2, &weight)
+		graph[edge1-1] = append(graph[edge1-1], struct{v, w int}{edge2 - 1, weight})
+	}
+
+	const inf = 30000
+	dist := make([]int, n+1)
+	for i := 0; i <= n; i++ {
+		dist[i] = inf
+	}
+	dist[0] = 0
+
+	for i := 0; i < n-1; i++ {
+		for u := 0; u < n; u++ {
+			for _, pair := range graph[u] {
+				v, w := pair.v, pair.w
+				if dist[u] != inf && dist[u]+w < dist[v] {
+					dist[v] = dist[u] + w
+				}
+			}
+		}
+	}
+
+	for i := 0; i < n; i++ {
+		fmt.Print(dist[i], " ")
+	}
+}
