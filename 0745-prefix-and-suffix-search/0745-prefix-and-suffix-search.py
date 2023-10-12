@@ -1,29 +1,31 @@
-import collections
 Trie = lambda: collections.defaultdict(Trie)
+WEIGHT = False
+
 
 class WordFilter:
 
     def __init__(self, words: List[str]):
         self.trie =  Trie()
-        for weight,word in enumerate(words):
-            for i in range(len(word)+1):
-                node = self.trie
-                node['weight'] = weight
-                
-                word_to_insert = word[i:]+'#'+word
-                for c in word_to_insert:
-                    node = node[c]
-                    node['weight'] = weight
-    
+        
+        for w,word in enumerate(words):
+            word += "#"
+            
+            for i in range(len(word)):
+                cur = self.trie
+                cur[WEIGHT] = w
+                for j in range(i,2*len(word)):
+                    cur = cur[word[j % len(word)]]
+                    cur[WEIGHT] = w
+        
 
     def f(self, pref: str, suff: str) -> int:
         cur = self.trie
-        for letter in suff + '#' + pref:
-            if letter not in cur: return -1
+        for latter in suff + '#' + pref:
+            if latter not in cur: return -1
             
-            cur = cur[letter]
+            cur = cur[latter]
             
-        return cur['weight']
+        return cur[WEIGHT]
         
 
 
